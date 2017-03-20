@@ -1,8 +1,0 @@
-<p><h2>Título: ${_arg.data.title}</h2></p>
-<p>Site: <a href='http://${_arg.data.domain}'>${_arg.data.domain}</a></p>
-#{if _arg.data.selftext_html == null}{
-<p class="justify">Não tem texto</p>
-#{/if}
-#{else}
-<p class="justify">${_arg.data.selftext_html}</p>
-#{/else}

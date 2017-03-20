@@ -7,6 +7,7 @@ import play.mvc.*;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.util.*;
 
@@ -17,9 +18,13 @@ public class Application extends Controller {
     }
 
     public static void consumidor(){
-    	HttpResponse r = WS.url("https://www.reddit.com/new.json").get();
-        JsonElement json = r.getJson();
-        render(json);
+    	HttpResponse res = WS.url("https://www.reddit.com/new.json").get();
+        
+        int status = res.getStatus();
+        String contentType = res.getContentType();
+        
+        JsonElement json = res.getJson();
+        
+        render(status, contentType, json);
     }
-
 }

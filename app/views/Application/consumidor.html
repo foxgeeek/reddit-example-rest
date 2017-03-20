@@ -6,10 +6,17 @@
 </head>
 <body>
 	<center><h1>Notícias do dia</h1></center>
-	#{list json.data.children, as : 'j'}
+            #{list json.data.children, as : 'j'}
             <div style="background:#ccc;padding:10px;margin:10px;border:solid transparent;border-radius:8px;">
-            #{tagJson j/}
+                <p>Title: ${j.data.title.cut('"')}</p>
+                <p>Domain: <a href="${j.data.domain.cut('"')}" target="blank">${j.data.domain.cut('"')}</a></p>
+                #{if j.data.thumbnail.toString().contains("b.thumbs.redditmedia.com")}
+                    <img src="${j.data.thumbnail.cut('"')}">
+                #{/if}
+                #{else}
+                <img src="http://www.lco.cl/personnel/pics/noimage.png">
+                #{/else}
             </div>
-	#{/list}
+            #{/list}
 </body>
 </html>
