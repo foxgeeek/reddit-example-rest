@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Notícias</title>
+</head>
+<body>
+	<center><h1>Notícias do dia</h1></center>
+	#{list json.data.children, as : 'j'}
+            <div style="background:#ccc;padding:10px;margin:10px;border:solid transparent;border-radius:8px;">
+            #{tagJson j/}
+            </div>
+	#{/list}
+</body>
+</html>
